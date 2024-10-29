@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+                        <div class="container">
+                            
+                        <br><br>
+                        <h2 class="text-center bg-dark p-3 text-white">Documents</h2>
+                        <br><br>
+                        <ul>
+                            {% for i in document %}
+
+                            <li>
+                                <h3>
+                                    {{ i.title }}
+                                </h3>
+                                <p>
+                                    {{ i.description }}
+                                </p>
+                                <a href="{{ i.upload.url }}" style="text-decoration: none;">Download</a>
+                                <p>Uploaded at: {{ i.uploaded_at }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{% url 'upload_document' %}" style="text-decoration: none;">Add Document</a>
+                        </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
